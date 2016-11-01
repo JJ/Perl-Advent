@@ -231,12 +231,13 @@ doing completion.
 
     if ($param_to_complete eq 'target') {
         return [ target_units_for($type, $source) ];
+
         # alternatively here you can return a list of hashrefs with
         # descriptions or any dynamic value
         # depending on $type, $source and $value
         # return [
-            { name => "inch", "276.000in" },
-            ...
+        #    { name => "inch", "276.000in" },
+        #    ...
         # ];
     }
 
@@ -245,7 +246,7 @@ doing completion.
 It's the same idea as having an OpenAPI or similar specification for a
 REST API.
 
-I Specify as much as I can in one document and add necessary
+I specify as much as I can in one document and add necessary
 additional documentation.
 
 This file can then be used by several tools. So I want a tool that
@@ -258,6 +259,7 @@ Also it should validate my file against the schema.
 
 If this framework is ported to another language, these things don't
 have to be ported, because there is already this perl5 tool.
+(Of course, validation might include language specific restrictions, though.)
 
 Also, if I have an existing command which lacks completion,
 I can write a spec for it and generate the completion files without
@@ -339,18 +341,19 @@ That's possible by defining the name of the op at the top command
 and leave the subcommands' op fields empty.
 
     # appspec
-    name: ...
+    name: githubcl
     ...
     subcommands:
       GET:
         op: request
         subcommands:
           /issues:
-            summay: List issues
+            summary: List issues
             # no op defined here
             options: ...
           /user:
-            summary: Ifo about the current authenticated user
+            summary: Info about the current authenticated user
+            ...
       POST:
         op: request
         options:
