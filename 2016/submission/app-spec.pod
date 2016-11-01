@@ -43,6 +43,8 @@ with different options and parameters:
     % weather list countries
     % weather list cities [(--country | -c) <country>]
 
+In the App::Weather class:
+
     #!perl
     sub forecast {
         my ($self, $run) = @_;
@@ -93,20 +95,6 @@ The configuration of these commands looks like that:
               # The first element of the spec here is actually very similar
               # to the syntax for Getopt::Long
               - spec: country|c=s --Country name
-
-In the App::Weather class:
-
-    #!perl
-    sub forecast {
-        my ($self, $run) = @_;
-        my $country = $run->parameters->{country};
-        my $city = $run->parameters->{city};
-        my $temp = $run->options->{"show-temperature"};
-        ...
-
-        my $text = weather_for($country, $city);
-        $run->out($text);
-    }
 
 When searching for existing modules I found L<App::Cmd>, L<MooseX::App>,
 L<MooseX::App::Cmd>, L<MouseX::App::Cmd>, L<MooX::Cmd> and more.
