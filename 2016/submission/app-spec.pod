@@ -94,12 +94,12 @@ I also want the possibility to callback the app itself for validation.
     % weather forecast Moon Darkside
     Sorry, we don't have Darkside, Moon in our database
 
-Your app command is called with the information that the parameter C<country>
+My app command is called with the information that the parameter C<country>
 is about to be validated. The app should return the list of possible
 countries, which will be automatically compared to the parameter.
 
-Your app command is called with the information that the parameter C<city>
-is about to be validated. Now your app takes the C<country> parameter and
+Then my app command is called with the information that the parameter C<city>
+is about to be validated. Now the app takes the C<country> parameter and
 returns the list of cities in that coutry.
 
     #!perl
@@ -139,7 +139,7 @@ Here are some simple things I want to have supported out of the box:
 
 This gets a bit more complicated:
 
-    # Dynamic completion, calls back your app from the shell.
+    # Dynamic completion, calls back the app from the shell.
     % weather list cities --country <TAB>
     Romania Spain Netherlands
     % weather forecast <TAB>
@@ -151,17 +151,17 @@ I wanna be able to specify some static values for completion and
 validation, but also be able to call back the app, like in the previous
 examples.
 
-Like in validation mode, your app is called with the information
+Like in validation mode, the app is called with the information
 that a certain parameter is about to be completed.
-For example when completing the city in the last example. You have
-access to the country parameter and now you return the list of
+For example when completing the city in the last example. I have
+access to the country parameter and now return the list of
 cities. Completion code will then be generated and
 returned to the shell.
 
-Additionally here you can also return a list of hashrefs so that the
+Additionally here I can also return a list of hashrefs so that the
 completion will be shown with a description.
 
-You can even output some dynamic information in the completion description.
+I can even output some dynamic information in the completion description.
 As an example see the convert example which takes a unit type, a source unit,
 a value and a target unit.
 
@@ -174,10 +174,10 @@ doing completion.
 
 =head2 One place for specification and documentation
 
-It's the same idea as having an OpenAPI or similar specification for your
+It's the same idea as having an OpenAPI or similar specification for a
 REST API.
 
-You specify as much as you can in one document and add necessary
+I Specify as much as I can in one document and add necessary
 additional documentation.
 
 This file can then be used by several tools. So I want a tool that
@@ -191,8 +191,8 @@ Also it should validate my file against the schema.
 If this framework is ported to another language, these things don't
 have to be ported, because there is already this perl5 tool.
 
-Also, if you have an existing command which lacks completion,
-you can write a spec for it and generate the completion files without
+Also, if I have an existing command which lacks completion,
+I can write a spec for it and generate the completion files without
 needing to touch the app itself.
 
 =head2 The new wheel
