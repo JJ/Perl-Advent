@@ -52,7 +52,11 @@ In the App::Weather class:
         my $city = $run->parameters->{city};
         my $temp = $run->options->{"show-temperature"};
 
+        # You can also use print directly. Using C<out> makes
+        # it easier to test the app, and give plugins the possibility
+        # to modify the output
         $run->out("Snow in $city, $country");
+
         if ($temp) {
             my $symbol = "°C";
             my $t = forecast(...);
@@ -398,6 +402,8 @@ It's very experimental and not on CPAN yet.
 =item L<MouseX::App::Cmd>
 
 =item L<MooX::Cmd>
+
+=item L<CLI::Framework>
 
 =item OpenAPI specs L<https://github.com/APIs-guru/openapi-directory>
 
